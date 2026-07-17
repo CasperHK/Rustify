@@ -8,6 +8,30 @@ Rustify is a full-stack web framework combining:
 - **Salvo.rs** (backend): A powerful, async Rust web server framework for building robust APIs and web services.
 - **Diesel ORM** (database): A safe, efficient Rust ORM for interacting with SQL databases using compile-time checked queries.
 
+## Project Structure
+This structure separates your frontend (SolidStart) and backend (Salvo + Diesel) clearly, making it easier to manage dependencies and build pipelines.
+```text
+my-fullstack-app/
+├── backend/                # Salvo.rs API
+│   ├── src/
+│   │   ├── main.rs         # Server entry point
+│   │   ├── models.rs       # Diesel DB models
+│   │   ├── schema.rs       # Diesel auto-generated schema
+│   │   └── handlers/       # Request handlers
+│   ├── Cargo.toml
+│   └── .env                # Database URL and config
+├── frontend/               # SolidStart
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
+├── docker/
+│   └── Dockerfile          # Multi-stage Dockerfile
+├── .gitignore
+├── docker-compose.yml      # Orchestrate Database + API
+└── README.md
+```
+
 ## How Rustify Helps Newbies Adopt Rust for Web Development
 
 - **Clear Structure:** The project is organized with separate folders for models, controllers, and routes, following familiar MVC patterns.
